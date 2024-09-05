@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: world-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: world
+  template:
+    metadata:
+      labels:
+        app: world
+    spec:
+      containers:
+        - name: world
+          image: dockerneel2k/world-service:1.0
+          ports:
+            - containerPort: 8081
